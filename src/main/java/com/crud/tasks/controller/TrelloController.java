@@ -22,11 +22,11 @@ public class TrelloController {
 
         List<TrelloBoardDto> trelloBoards = trelloClient.getTrelloBoards();
 
-        trelloBoards.forEach(trelloBoardDto -> System.out.println(trelloBoardDto.getId() + " " + trelloBoardDto.getName()));
-//        trelloBoards.stream()
-//                .filter(i->i.getId().contains(Any.DEFAULT_ID_GEN_STRATEGY))
-//                .filter(n->n.getName().contains(Any.DEFAULT_ID_GEN_STRATEGY))
-//                .filter(k->k.getName().contains("Kodilla"))
-//                .forEach(trelloBoardDto -> System.out.println(trelloBoardDto.getId() + " " + trelloBoardDto.getName()));
+//        trelloBoards.forEach(trelloBoardDto -> System.out.println(trelloBoardDto.getId() + " " + trelloBoardDto.getName()));
+        trelloBoards.stream()
+                .filter(i->i.getId() != null)
+                .filter(n->n.getName()!= null)
+                .filter(k->k.getName().contains("Kodilla"))
+                .forEach(trelloBoardDto -> System.out.println(trelloBoardDto.getId() + " " + trelloBoardDto.getName()));
     }
 }
