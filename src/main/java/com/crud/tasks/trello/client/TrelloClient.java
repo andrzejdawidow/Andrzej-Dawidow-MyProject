@@ -15,6 +15,9 @@ import java.util.List;
 @Component
 public class TrelloClient {
 
+    @Value("${trello.api.username}")
+    private String trelloUsername;
+
     @Value("${trello.api.endpoint.prod}")
     private String trelloApiEndpoint;
 
@@ -28,8 +31,9 @@ public class TrelloClient {
     private RestTemplate restTemplate;
 
     public List<TrelloBoardDto> getTrelloBoards() {
+        URI url = UriComponentsBuilder.fromHttpUrl(trelloApiEndpoint + getTrelloUsername())
 
-        URI url = UriComponentsBuilder.fromHttpUrl(trelloApiEndpoint + "/members/andrzejdawidow/boards")
+//        URI url = UriComponentsBuilder.fromHttpUrl(trelloApiEndpoint + "/members/andrzejdawidow/boards")
                 .queryParam("key", trelloAppKey)
                 .queryParam("token", trelloToken)
                 .queryParam("fields", "name,id").build().encode().toUri();
@@ -40,5 +44,8 @@ public class TrelloClient {
             return Arrays.asList(boardsResponse);
         }
         return new ArrayList<>();
+    }
+    private String getTrelloUsername() {
+        return "/members/" + trelloUsername + "/boards/";
     }
 }
