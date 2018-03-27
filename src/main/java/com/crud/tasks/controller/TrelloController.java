@@ -22,11 +22,24 @@ public class TrelloController {
 
         List<TrelloBoardDto> trelloBoards = trelloClient.getTrelloBoards();
 
-//        trelloBoards.forEach(trelloBoardDto -> System.out.println(trelloBoardDto.getId() + " " + trelloBoardDto.getName()));
+        trelloBoards.forEach(trelloBoardDto -> System.out.println(trelloBoardDto
+                .getId() + " " + trelloBoardDto.getName()));
         trelloBoards.stream()
                 .filter(i->i.getId() != null)
-                .filter(n->n.getName()!= null)
+                .filter(n->n.getName() != null)
                 .filter(k->k.getName().contains("Kodilla"))
-                .forEach(trelloBoardDto -> System.out.println(trelloBoardDto.getId() + " " + trelloBoardDto.getName()));
+                .forEach(trelloBoardDto -> System.out.println(trelloBoardDto.getId() + " " +
+                 trelloBoardDto.getName()));
+
+        trelloBoards.forEach(trelloBoardDto -> {
+
+            System.out.println(trelloBoardDto.getName() + " - " + trelloBoardDto.getId());
+
+            System.out.println("This board contains lists: ");
+            System.out.println(trelloBoardDto.getLists());
+            trelloBoardDto.getLists().forEach(trelloList ->
+                    System.out.println(trelloList.getName() + " - " + trelloList.getId() + " - " + trelloList.isClosed()));
+
+        });
     }
 }
