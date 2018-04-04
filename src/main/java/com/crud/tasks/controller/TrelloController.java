@@ -20,7 +20,7 @@ public class TrelloController {
     public List<TrelloBoardDto> getTrelloBoards() {
         return trelloClient.getTrelloBoards();
     }
-}
+//}
 //    List<TrelloBoardDto> trelloBoards = trelloClient.getTrelloBoards();
 
 //        trelloBoards.forEach(trelloBoardDto -> System.out.println(trelloBoardDto
@@ -43,9 +43,9 @@ public class TrelloController {
 
         });
     }
-
+*/
     @RequestMapping(method = RequestMethod.POST, value = "createTrelloCard")
     public CreatedTrelloCard createdTrelloCard(@RequestBody TrelloCardDto trelloCardDto) {
         return trelloClient.createNewCard(trelloCardDto);
     }
-}*/
+}
