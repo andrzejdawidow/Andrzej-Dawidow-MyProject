@@ -52,15 +52,6 @@ public class TrelloClient {
             return new ArrayList<>();
         }
     }
-/*po 18.3        TrelloBoardDto[] boardsResponse = restTemplate.getForObject(url, TrelloBoardDto[].class);
-
-        if (boardsResponse != null) {
-            return Arrays.asList(boardsResponse);
-        }
-        return new ArrayList<>();
-    } */
-//    private String getTrelloUsername() { return "/members/" + trelloUsername + "/boards/";
-//    }
 
     public CreatedTrelloCard createNewCard(TrelloCardDto trelloCardDto) {
         URI url = UriComponentsBuilder.fromHttpUrl(trelloConfig.getTrelloApiEndpoint() + "/cards")
@@ -74,3 +65,12 @@ public class TrelloClient {
         return restTemplate.postForObject(url, null, CreatedTrelloCard.class);
     }
 }
+/*po 18.3        TrelloBoardDto[] boardsResponse = restTemplate.getForObject(url, TrelloBoardDto[].class);
+
+        if (boardsResponse != null) {
+            return Arrays.asList(boardsResponse);
+        }
+        return new ArrayList<>();
+    } */
+//    private String getTrelloUsername() { return "/members/" + trelloUsername + "/boards/";
+//    }
