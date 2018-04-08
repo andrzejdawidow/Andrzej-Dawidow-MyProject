@@ -11,5 +11,5 @@ public class Mail {
     private String mailTo;
     private String subject;
     private String message;
-    private String toCc;
+//zad.19.3    private String toCc;
 }

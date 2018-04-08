@@ -22,9 +22,9 @@ public class SimpleEmailServiceTest {
     @Mock
     private JavaMailSender javaMailSender;
 
-/*    @Test
+    @Test
     public void shouldSendEmail() {
-        //Given
+/*        //Given
         Mail mail = new Mail("test@test.com", "Test", "Test Message");
 
         SimpleMailMessage mailMessage = new SimpleMailMessage();
@@ -37,5 +37,5 @@ public class SimpleEmailServiceTest {
 
         //Then
         verify(javaMailSender, times(1)).send(mailMessage);
-    }*/
+   */ }
 }
